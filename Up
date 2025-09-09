@@ -1,0 +1,28 @@
+import qrcode
+
+def generate_recharge_requests(upi_id, name, count, amount, note):
+    for i in range(1, count + 1):
+        # Create UPI link (only name + fixed amount)
+        upi_link = f"upi://pay?pa={upi_id}&pn={name}&am={amount}&cu=INR&tn={note}"
+        
+        # Print link
+        print(f"\nRecharge Request {i}:")
+        print(upi_link)
+
+        # Save QR Code
+        qr = qrcode.make(upi_link)
+        qr_filename = f"recharge_{i}.png"
+        qr.save(qr_filename)
+        print(f"✅ QR Code saved as {qr_filename}")
+
+if __name__ == "__main__":
+    # Your UPI details
+    my_upi_id = "yourupiid@upi"   # <-- Replace with your UPI ID
+    my_name = "Your Name"         # <-- Replace with your name
+    recharge_amount = "299"       # Fixed recharge amount
+    note = "Mobile Recharge"
+    
+    # How many requests you want?
+    count = int(input("How many recharge requests to generate? "))
+    
+    generate_recharge_requests(my_upi_id, my_name, count, recharge_amount, note)
